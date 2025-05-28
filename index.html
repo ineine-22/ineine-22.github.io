@@ -6,22 +6,58 @@
   <title>LeeChatURL</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fafafa;
       color: #222;
       margin: 40px 20px;
+      min-height: 90vh;
+      text-align: center;
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 90vh;
-      text-align: center;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 32px;
       color: #000;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* 좌우 박스 컨테이너 */
+    .container {
+      display: flex;
+      gap: 60px;
+      max-width: 900px;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    /* 좌우 각각 박스 */
+    .box {
+      background: #fff;
+      padding: 24px 32px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 280px;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #111;
+      text-align: center;
     }
 
     a {
@@ -29,20 +65,21 @@
       text-decoration: none;
       font-weight: 600;
       border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
+      padding-bottom: 2px;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
 
     a:hover,
     a:focus {
-      border-bottom: 2px solid #0078d7;
+      border-bottom-color: #0078d7;
+      color: #005ea3;
       outline: none;
     }
 
-    p {
+    p, li {
       font-size: 1rem;
-      line-height: 1.6;
-      max-width: 480px;
       color: #444;
+      margin-bottom: 16px;
     }
 
     i {
@@ -50,21 +87,121 @@
       margin-top: 25px;
       color: #666;
       font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* 서버 링크 버튼 */
+    .server-link {
+      display: block;
+      margin: 0 auto 12px;
+      padding: 12px 20px;
+      background-color: #0078d7;
+      color: #fff !important;
+      border-radius: 6px;
+      width: max-content;
+      font-size: 1.1rem;
+      box-shadow: 0 3px 8px rgba(0, 120, 215, 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .server-link:hover,
+    .server-link:focus {
+      background-color: #005ea3;
+      box-shadow: 0 5px 12px rgba(0, 94, 163, 0.6);
+      outline: none;
+    }
+
+    /* 게임 다운로드 링크 */
+    .game-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+
+    .game-list li {
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .game-list a {
+      margin-left: 12px;
+      padding: 6px 14px;
+      background-color: #0078d7;
+      color: white !important;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 120, 215, 0.4);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .game-list a:hover,
+    .game-list a:focus {
+      background-color: #005ea3;
+      box-shadow: 0 4px 10px rgba(0, 94, 163, 0.6);
+      outline: none;
+    }
+
+    /* 반응형 */
+    @media (max-width: 720px) {
+      .container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .box {
+        min-width: auto;
+        width: 90%;
+        padding: 20px;
+      }
+
+      h2 {
+        text-align: center;
+      }
     }
   </style>
-
 </head>
 
-
 <body>
-  <h1>
-    LeeChatURL: <a href="https://usually-neat-loon.ngrok-free.app/" target="_blank" rel="noopener noreferrer">현재 링크</a>
-  </h1>
-  <p>
-    위 사이트를 클릭하면 자동 변경되는 URL을 따라서 LeeChat 사이트로 이동합니다.<br />
-    만약 LEE가 서버를 종료하였다면 접속 오류가 발생할 수 있습니다.<br />
-    들어가면 visit site 버튼을 눌러 접속합니다.
-  </p>
-  <i>현재 버전: 1.3.1</i>
+  <h1>Lee's share site</h1>
+
+  <div class="container">
+    <!-- 서버 링크 영역 -->
+    <section class="box">
+      <h2>LeeChatURL</h2>
+      <a href="https://usually-neat-loon.ngrok-free.app/" target="_blank" rel="noopener noreferrer" class="server-link">현재 링크 접속하기</a>
+      <p>
+        위 사이트를 클릭하면 자동 변경되는 URL을 따라서 LeeChat 사이트로 이동합니다.<br />
+        만약 LEE가 서버를 종료하였다면 접속 오류가 발생할 수 있습니다.<br />
+        들어가면 <strong>visit site</strong> 버튼을 눌러 접속합니다.<br />
+        만약 접속이 안된다면 아래 변동 링크를 통해 접속해보세요.<br />
+
+      </p>
+
+      <section>
+        <strong>변동 링크:</strong> <a href="#" target="_blank" rel="noopener noreferrer">링크</a><br/>
+      </section>
+      
+    </section>
+
+    <!-- 게임 다운로드 영역 -->
+    <section class="box">
+      <h2>Lee's game</h2>
+      <ul class="game-list">
+        <li>
+          10to10 ver.5.0
+          <a href="https://drive.google.com/file/d/1ZizY1wFpmVuZVW8JHG-TGseqB7Ezg5jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">다운로드</a>
+        </li>
+        <li>
+          master U ver.1.0
+          <a href="#" target="_blank" rel="noopener noreferrer">다운로드</a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
