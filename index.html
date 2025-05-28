@@ -31,7 +31,6 @@
       letter-spacing: 1px;
     }
 
-    /* 좌우 박스 컨테이너 */
     .container {
       display: flex;
       gap: 60px;
@@ -42,7 +41,6 @@
       text-align: left;
     }
 
-    /* 좌우 각각 박스 */
     .box {
       background: #fff;
       padding: 24px 32px;
@@ -90,7 +88,6 @@
       text-align: center;
     }
 
-    /* 서버 링크 버튼 */
     .server-link {
       display: block;
       margin: 0 auto 12px;
@@ -112,7 +109,6 @@
       outline: none;
     }
 
-    /* 게임 다운로드 링크 */
     .game-list {
       list-style: none;
       padding-left: 0;
@@ -122,6 +118,16 @@
     .game-list li {
       margin-bottom: 12px;
       font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f5f5f5;
+      padding: 10px 16px;
+      border-radius: 6px;
+    }
+
+    .game-list span {
+      flex: 1;
     }
 
     .game-list a {
@@ -135,6 +141,7 @@
       font-size: 0.95rem;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .game-list a:hover,
@@ -144,7 +151,15 @@
       outline: none;
     }
 
-    /* 반응형 */
+    .warning {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #aa0000;
+      text-align: center;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
     @media (max-width: 720px) {
       .container {
         flex-direction: column;
@@ -161,6 +176,16 @@
 
       h2 {
         text-align: center;
+      }
+
+      .game-list li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .game-list span {
+        margin-bottom: 8px;
       }
     }
   </style>
@@ -179,13 +204,11 @@
         만약 LEE가 서버를 종료하였다면 접속 오류가 발생할 수 있습니다.<br />
         들어가면 <strong>visit site</strong> 버튼을 눌러 접속합니다.<br />
         만약 접속이 안된다면 아래 변동 링크를 통해 접속해보세요.<br />
-
       </p>
 
       <section>
         <strong>변동 링크:</strong> <a href="" target="_blank" rel="noopener noreferrer">링크</a><br/>
       </section>
-      
     </section>
 
     <!-- 게임 다운로드 영역 -->
@@ -193,14 +216,18 @@
       <h2>Lee's game</h2>
       <ul class="game-list">
         <li>
-          10to10 ver.5.0
+          <span>10to10 ver.5.0</span>
           <a href="https://drive.google.com/file/d/1ZizY1wFpmVuZVW8JHG-TGseqB7Ezg5jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">다운로드</a>
         </li>
         <li>
-          master U ver.1.0
+          <span>master U ver.1.0</span>
           <a href="https://drive.google.com/file/d/1PR-O0Xo9TdDYtmt6LrkuTuuUQDuAChVw/view?usp=sharing" target="_blank" rel="noopener noreferrer">다운로드</a>
         </li>
       </ul>
+
+      <div class="warning">
+        ⚠️ 이는 Lee의 저작물로써 <strong>저작자 표시(BY) · 비영리(NC) · 변경금지(ND)</strong>를 따릅니다.
+      </div>
     </section>
   </div>
 </body>
